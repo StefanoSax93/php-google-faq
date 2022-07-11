@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 $db = [
-    
+
     [
         'titolo' => [
             'tag' => 'h2',
@@ -143,26 +143,70 @@ $db = [
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css' integrity='sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg==' crossorigin='anonymous'/>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css' integrity='sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg==' crossorigin='anonymous' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous' />
 </head>
+
 <body>
-    
-    <div class="container p-5">
-        <?php foreach($db as $paragrafo) { ?>
-            <?php foreach($paragrafo as $titolo) { ?>
-                <?php if(isset($titolo['tag'])) { ?>
+    <header class="p-3">
+        <div class="d-flex justify-content-between align-items-center px-2">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" alt="" style="max-width: 80px;" class="align-middle pb-2 me-1">
+                <a href="" class="text-muted text-decoration-none fs-3">Privacy e termini</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-grip text-muted"></i>
+                <span class="bg-danger rounded-circle p-3 text-white fw-bold ms-3">
+                    S
+                </span>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg border-bottom border-2">
+            <div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav fs-5">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Introduzione</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Norme sulla privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Termini di servizio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tecnologie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Domande frequenti</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container p-5 w-75">
+        <?php foreach ($db as $paragrafo) { ?>
+            <?php foreach ($paragrafo as $titolo) { ?>
+                <?php if (isset($titolo['tag'])) { ?>
                     <<?php echo $titolo['tag'] ?> class="mt-5"><?php echo $titolo['testo'] ?> </<?php echo $titolo['tag'] ?>>
                 <?php } ?>
-            <?php } ?> 
-            <?php foreach($paragrafo['paragrafi'] as $paragrafo) { ?>
-                <p class="my-4"><?php echo $paragrafo; ?></p> 
-            <?php } ?>      
+            <?php } ?>
+            <?php foreach ($paragrafo['paragrafi'] as $paragrafo) { ?>
+                <p class="my-4"><?php echo $paragrafo; ?></p>
+            <?php } ?>
         <?php } ?>
     </div>
 </body>
+
 </html>
